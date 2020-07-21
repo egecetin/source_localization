@@ -1,6 +1,6 @@
 function [ui]=maincalc(event,handles)
     persistent databuff local xp yp timelabels timeticks oldtimer
-    if isempty(databuff) % Sadece ilk çaðýrmada boþ olacak
+    if isempty(databuff) % Sadece ilk Ã§aÃ°Ã½rmada boÃ¾ olacak
         % - Init variables
         oldtimer=0;
         databuff=zeros(handles.fs*handles.time*6,3);
@@ -110,15 +110,9 @@ function [ui]=maincalc(event,handles)
        delta = -J(x) \ f(x);
        x = x + delta;
        if norm(delta,inf) < handles.tol
-%          fprintf('%5i    %10.5e   %10.5e     %10.5e      %8.3e\n',n,x(1),x(2),x(3),norm(delta,inf));
          break
        end
     end
-
-%     if n==handles.maxiter
-%        disp('*** Warning: may not have converged -- tolerance not satisfied')
-%        fprintf('%5i    %10.5e   %10.5e     %10.5e      %8.3e\n',n,x(1),x(2),x(3),norm(delta,inf));
-%     end
 
     % - Calculate radius
     r1=sqrt((handles.xo-x(1))^2+x(2)^2);
